@@ -26,10 +26,9 @@ SELECT
     u.username,
     b.booking_id,
     b.booking_date
-FROM users u
-FULL OUTER JOIN bookings b 
-    ON u.user_id = b.user_id;
-
+FROM bookings b
+INNER JOIN users u 
+    ON b.user_id = u.user_id;
 -- If using MySQL (simulate FULL OUTER JOIN with UNION):
 SELECT 
     u.user_id,
