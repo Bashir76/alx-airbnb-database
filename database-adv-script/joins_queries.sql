@@ -57,4 +57,3 @@ SELECT
 FROM users u
 RIGHT JOIN bookings b 
     ON u.user_id = b.user_id;
- 
