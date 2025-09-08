@@ -13,7 +13,9 @@ SELECT
 FROM bookings b
 INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN properties p ON b.property_id = p.property_id
-INNER JOIN payments pay ON b.booking_id = pay.booking_id;
+INNER JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.booking_date IS NOT NULL
+AND pay.amount > 0;
 
 -- Analyze performance using EXPLAIN
 EXPLAIN
@@ -31,7 +33,9 @@ SELECT
 FROM bookings b
 INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN properties p ON b.property_id = p.property_id
-INNER JOIN payments pay ON b.booking_id = pay.booking_id;
+INNER JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.booking_date IS NOT NULL
+AND pay.amount > 0;
 
 -- Refactored query: Select fewer columns
 SELECT 
@@ -43,7 +47,9 @@ SELECT
 FROM bookings b
 INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN properties p ON b.property_id = p.property_id
-INNER JOIN payments pay ON b.booking_id = pay.booking_id;
+INNER JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.booking_date IS NOT NULL
+AND pay.amount > 0;
 
 -- Analyze performance of the refactored query
 EXPLAIN
@@ -56,4 +62,6 @@ SELECT
 FROM bookings b
 INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN properties p ON b.property_id = p.property_id
-INNER JOIN payments pay ON b.booking_id = pay.booking_id;
+INNER JOIN payments pay ON b.booking_id = pay.booking_id
+WHERE b.booking_date IS NOT NULL
+AND pay.amount > 0;
